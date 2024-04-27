@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+<h1 style="background-color:#ffffff;text-align:center;margin:auto;color:#3b5db2;font-family: sans-serif;padding:20px">{{ madel.name }}</h1>
+<table border="1" class="styled-table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Brand</th>
+        <th>Madel</th>
+        <th>Price</th>
+        <th>Color</th>
+        <th>Memory</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for mp in madel_pro %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            {#                <td><a href="{% url 'brand_list' madel_id=mp.brand_id %}">{{ mp.brand.name }}</a></td>#}
+            <th>{{ mp.title }}</th>
+            <th>{{ mp.description }}</th>
+            <th>{{ mp.brand }}</th>
+            <th>{{ mp.madel }}</th>
+            <th>{{ mp.price }}</th>
+            <th>{{ mp.color }}</th>
+            <th>{{ mp.memory }}</th>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+{#<ul>#}
+{#{% for max in max_price %}#}
+{#        <li>#}
+{#            <pre><b>{{ max.brand.name }}      {{ max.price }} {{ max.madel.name }}</b> </pre>#}
+{#        </li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+<a href="/" class="button">Ortga</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Madel</title>
+</head>
+
+<body style="background-color:whitesmoke">
+<h1 style="background-color:#ffffff;text-align:center;margin:auto;color:#3b5db2;font-family: sans-serif;padding:20px">{{ brand_name.name }}</h1>
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Madel</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for m in filter_madel %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'product_list' product_id=m.id soni=2 %}">{{ m.name }}</a></td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+<a href="/" class="button">Ortga</a>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body style="background-color:whitesmoke">
+<h1 style="background-color:#0d44d2;text-align:center;margin:auto;color:#ffffff;font-family: sans-serif;padding:20px">
+   TELEFON BRANDLARIDAN BIRINI TANLANG!</h1>
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Brand</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for br in sort_brand %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'madel_list' madel_id=br.id %}">{{ br.name }}</a></td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+{#<ul>#}
+{#    {% for max in max_price %}#}
+{#        <li>#}
+{#            <pre><b>{{ max.brand.name }}      {{ max.price }} {{ max.madel.name }}</b> </pre>#}
+{#        </li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+</body>
+</html>
